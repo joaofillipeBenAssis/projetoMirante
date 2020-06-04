@@ -1,0 +1,55 @@
+<div class="margin-page">
+
+    <div class="col-lg-6">
+
+        <h4>CADASTRAR OPERADORES</h4>
+        <hr/>
+            
+        <div class="panel panel-default">
+
+            <div class="panel-body borda">
+
+                <form role="form" ng-submit="salvarOperador(operador)">
+                    
+                    <label>Nome:</label>
+                    <input ng-model="operador.nome" type="text" name="login" required="true" class="form-control">
+
+                    <label>LogIn:</label>
+                    <input ng-model="operador.login" type="text" name="login" required="true" class="form-control">
+
+                    <label>Senha:</label>
+                    <input ng-model="operador.senha" type="password" name="senha" required="true" class="form-control">
+
+                    <label>Selecionar Perfil:</label>
+                    <select ng-model="operador.perfil"  name="perfis" id="perfis"  required="true" class="form-control title-15">
+                        <option ng-repeat="p in perfis">{{p}}</option>
+                    </select>
+
+                    <br>
+
+                    <div class="btn-s text-center">
+                        <input type="submit" value="SALVAR" class="btn btn-primary">
+                    </div>
+                                   
+                </form>
+
+            </div>
+
+        </div>
+        
+    </div>
+
+    <div ng-show="mostrarCadastrado" class="col-lg-5">
+
+        <h4>OPERADOR CADASTRADO</h4>
+        <hr/>
+
+        <div class="text-center bold-17">
+            <p>{{cadastrado.nome}}</p>
+            <p>{{cadastrado.perfil}}</p>
+        </div>
+
+    </div>
+
+
+</div>
