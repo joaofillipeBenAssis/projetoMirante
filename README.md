@@ -1,2 +1,0 @@
-# ProjetoMirante
-Avaliação Prática
