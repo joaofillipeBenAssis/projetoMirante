@@ -12,8 +12,6 @@ import javax.persistence.TemporalType;
 @Entity
 public class Operador implements Serializable
 {
-    private static final long serialVersionUID = 3231692012109406169L;
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
