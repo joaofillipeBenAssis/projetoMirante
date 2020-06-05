@@ -1,0 +1,126 @@
+.margin-page
+{
+    margin: 1%;
+}
+
+.logo
+{
+    font-size: 45px;
+}
+
+.borda
+{
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.176);
+    border: 1px solid #D4D4D4;
+}
+
+.borda-margin
+{
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.176);
+    border: 1px solid #D4D4D4;
+    height: 910px;
+    
+}
+
+.bold-15
+{
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.bold-17
+{
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.line-2
+{
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.margin-bottom-2
+{
+    margin-bottom: 2%
+}
+
+.outside-margin-0
+{
+    margin: 0%;
+}
+
+.outside-margin-list
+{
+    margin: 1.5%;
+}
+
+.outside-margin-2
+{
+    margin: 2%;
+}
+
+.outside-margin-3
+{
+    margin: 3%;
+}
+
+.outside-margin-4
+{
+    margin: 4%;
+    margin-bottom: 2.35%;
+}
+
+.outside-margin-1
+{
+    margin: 1%;
+}
+
+.square-margin-0
+{
+    padding: 0%
+}
+
+.square-margin-1
+{
+    padding: 1%
+}
+
+.square-margin-2
+{
+    padding: 2%
+}
+
+.square-margin-3
+{
+    padding: 3%
+}
+
+.title-15
+{
+    font-size: 15px;
+    margin:  0%;
+}
+
+.title-20
+{
+    font-size: 20px;
+}
+
+.title-25
+{
+    font-size: 25px;
+    margin: 0%;
+}
+
+
+.deposito-pendente
+{
+    height: 275px
+}
+
+.button
+{
+    font-size: 15px;
+}
+
