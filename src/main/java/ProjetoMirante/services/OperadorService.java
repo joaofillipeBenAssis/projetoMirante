@@ -22,13 +22,13 @@ public class OperadorService
     {
         try
         {
-            operador.setDataCadastro(new Date());
-            operador.setStatus(StatusEnum.ATIVO.getStatus());
-
             if (buscarOperador(operador.getLogin()) != null)
             {
                 throw new Exception("Operaddor já cadastrado.");
             }
+
+            operador.setDataCadastro(new Date());
+            operador.setAtivo(operador.isAtivo());
 
             salvar(operador);
         } 
@@ -85,7 +85,7 @@ public class OperadorService
         try
         {
             operador.editar
-            (operador.getNome(), operador.getLogin(), operador.getPerfil(), operador.getStatus());
+            (operador.getNome(), operador.getLogin(), operador.getPerfil(), operador.isAtivo());
 
             salvar(operador);
         } 
