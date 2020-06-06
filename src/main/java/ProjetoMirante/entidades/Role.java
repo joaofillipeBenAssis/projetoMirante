@@ -20,7 +20,7 @@ public class Role implements GrantedAuthority
     private String description;
     
     @ManyToMany(mappedBy = "roles")
-    private List<Operador> usuarios;
+    private List<Operador> operadores;
 
     public Role() 
     {
@@ -42,16 +42,15 @@ public class Role implements GrantedAuthority
         this.description = description;
     }
 
-    public List<Operador> getUsuarios() {
-        return usuarios;
+    public List<Operador> getOperadores() {
+        return operadores;
     }
 
-    public void setUsuarios(List<Operador> usuarios) 
+    public void setUsuarios(List<Operador> operadores) 
     {
-        this.usuarios = usuarios;
+        this.operadores = operadores;
     }
 	
-
     @Override
     public String getAuthority() 
     {
@@ -60,7 +59,7 @@ public class Role implements GrantedAuthority
 
     @Override
     public String toString() {
-        return "Role{" + "id=" + id + ", description=" + description + ", usuarios=" + usuarios + '}';
+        return "Role{" + "id=" + id + ", description=" + description + ", operadores=" + operadores + '}';
     }
     
 }

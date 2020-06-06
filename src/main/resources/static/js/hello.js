@@ -2,6 +2,8 @@ angular.module('hello',
         [
             'ngRoute',
             'operador',
+            'pessoa',
+            'inicio',
             'navigation'
             
             
@@ -13,11 +15,11 @@ angular.module('hello',
                 function ($routeProvider, $httpProvider, $locationProvider)
                 {
 
-                    $locationProvider.html5Mode(true);
+                        $locationProvider.html5Mode(true);
 
-                    $routeProvider
+                        $routeProvider
                     
-                            .when('/',
+                                .when('/operadores',
                                     {
                                         templateUrl: 'js/operadores/operadores.html',
                                         controller: 'operador',
@@ -25,7 +27,7 @@ angular.module('hello',
 
                                     })
 
-                            .when('/novo-operador',
+                                .when('/novo-operador',
                                     {
                                         templateUrl: 'js/operadores/novo-operador.html',
                                         controller: 'operador',
@@ -33,41 +35,43 @@ angular.module('hello',
 
                                     })
 
-                            .when('/login',
+                                .when('/pessoas',
+                                    {
+                                        templateUrl: 'js/pessoas/pessoas.html',
+                                        controller: 'pessoa',
+                                        controllerAs: 'controller'
+
+                                    })
+
+                                .when('/nova-pessoa',
+                                    {
+                                        templateUrl: 'js/pessoas/nova-pessoa.html',
+                                        controller: 'pessoa',
+                                        controllerAs: 'controller'
+
+                                    })
+
+                                /*
+                                .when('/login',
                                     {
                                         templateUrl: 'js/navigation/login.html',
                                         controller: 'navigation',
                                         controllerAs: 'controller'
 
                                     })
+                                */
                                     
-                            .when('/userFilter',
+                                .when('/warehouse',
                                     {
-                                        templateUrl: 'js/gerente/filter/usersFilter.html',
-                                        controller: 'clientes',
+                                        templateUrl: 'js/inicio/inicio.html',
+                                        controller: 'inicio',
                                         controllerAs: 'controller'
 
                                     })
                                     
-                            .when('/produtoFilter',
-                                    {
-                                        templateUrl: 'js/gerente/filter/produtoFilter.html',
-                                        controller: 'produtosGerente',
-                                        controllerAs: 'controller'
+                                .otherwise('/');
 
-                                    })
-                                    
-                            .when('/warehouse',
-                                    {
-                                        templateUrl: 'js/warehouse/warehouse.html',
-                                        controller: 'warehouse',
-                                        controllerAs: 'controller'
-
-                                    })
-                                    
-                            .otherwise('/');
-
-                    $httpProvider.defaults.headers
-                            .common['X-Requested-With'] = 'XMLHttpRequest';
+                        $httpProvider.defaults.headers
+                                .common['X-Requested-With'] = 'XMLHttpRequest';
 
                 })

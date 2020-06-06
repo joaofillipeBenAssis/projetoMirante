@@ -24,7 +24,7 @@ public class QRole extends EntityPathBase<Role> {
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
-    public final ListPath<Operador, QOperador> usuarios = this.<Operador, QOperador>createList("usuarios", Operador.class, QOperador.class, PathInits.DIRECT2);
+    public final ListPath<Operador, QOperador> operadores = this.<Operador, QOperador>createList("operadores", Operador.class, QOperador.class, PathInits.DIRECT2);
 
     public QRole(String variable) {
         super(Role.class, forVariable(variable));

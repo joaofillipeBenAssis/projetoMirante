@@ -43,9 +43,9 @@ public class Operador implements UserDetails, Serializable
 
     @ManyToMany
     @JoinTable( 
-	    name = "usuarios_roles", 
-	    joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "login"), 
-	    inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "nomeRole")) 
+	    name = "operadores_roles", 
+	    joinColumns = @JoinColumn(name = "operador_id", referencedColumnName = "id"), 
+	    inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")) 
     private List<Role> roles;
 
     public Operador() 
