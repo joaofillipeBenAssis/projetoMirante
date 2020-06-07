@@ -1,12 +1,16 @@
 package ProjetoMirante.services;
 
 import ProjetoMirante.entidades.Operador;
+import ProjetoMirante.entidades.Role;
 import ProjetoMirante.enums.OperadorEnum;
 import ProjetoMirante.enums.StatusEnum;
 import ProjetoMirante.repository.OperadorRepository;
+import ProjetoMirante.repository.RoleRepository;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,24 +21,47 @@ public class OperadorService
     @Autowired
     private OperadorRepository operadorRepository;
 
+    @Autowired
+    private RoleRepository roleRepository;
+
     @Transactional
     public void adicionarOperador(Operador operador) throws Exception
     {
         try
         {
+            
+
+            System.out.println("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+            System.out.println("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+            System.out.println(operador);
+
+            /*
             if (buscarOperador(operador.getLogin()) != null)
             {
                 throw new Exception("Operaddor já cadastrado.");
             }
 
-            operador.setDataCadastro(new Date());
+            Role role = roleRepository.buscarRole(operador.getPerfil());
 
-            salvar(operador);
+            if(role == null)
+            {
+                roleRepository.save(role);
+            }
+
+            List<Role> roles = new ArrayList<>();
+            roles.add(role);
+
+            operador.setDataCadastro(new Date());
+            operador.setRoles(roles);
+
+            */
+
+            //salvar(operador);
         } 
 
         catch (final Exception e)
         {
-             throw new  Exception("Erro ao adicionar Administrador.");
+             throw new  Exception("Erro ao adicionar Operador.");
         }
     }
 
@@ -66,16 +93,6 @@ public class OperadorService
         perfis.add(OperadorEnum.GERENTE.getTipoOperador());
 
         return perfis ;
-    }
-
-    public ArrayList<String> buscarStatus()
-    {
-        ArrayList<String> status = new ArrayList<>();
-        
-        status.add(StatusEnum.ATIVO.getStatus());
-        status.add(StatusEnum.INATIVO.getStatus());
-
-        return status ;
     }
 
     @Transactional

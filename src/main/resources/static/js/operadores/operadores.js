@@ -96,6 +96,5 @@ angular.module('operador', [])
         };
 
         $scope.buscarPerfis();
-        $scope.buscarStatus();
         $scope.buscarOperadores();
     });

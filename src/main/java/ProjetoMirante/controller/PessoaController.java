@@ -30,12 +30,14 @@ public class PessoaController
 
     @RequestMapping(value = "/salvar", method = RequestMethod.POST)
     public ResponseEntity<?> salvar(@RequestBody Operador operador) {
-        try {
+        try 
+        {
             operadorService.adicionarOperador(operador);
             return null;
         }
 
-        catch (final Exception e) {
+        catch (final Exception e) 
+        {
             return httpStatusInfo("Erro ao Salvar Operador. Tente Novamente.", HttpStatus.FORBIDDEN);
         }
 
@@ -55,19 +57,6 @@ public class PessoaController
         } 
     }
 
-    @RequestMapping(value = "/exibirStatus", method = RequestMethod.GET, produces = "application/json")
-    public @ResponseBody List<String> exibirStatus() throws JsonProcessingException 
-    {
-        try
-        {
-            return operadorService.buscarStatus();
-        } 
-        
-        catch (Exception e)
-        {
-            return null;
-        } 
-    }
 
     @RequestMapping(value = "/exibirTodos", method = RequestMethod.GET, produces = "application/json")
     public @ResponseBody List<Operador> exibirTodos() throws JsonProcessingException 

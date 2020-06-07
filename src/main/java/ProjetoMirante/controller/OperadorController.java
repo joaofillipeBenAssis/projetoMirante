@@ -1,20 +1,15 @@
 package ProjetoMirante.controller;
 
 import ProjetoMirante.entidades.Operador;
-import ProjetoMirante.enums.OperadorEnum;
 import ProjetoMirante.services.OperadorService;
 
-import java.util.Date;
 import java.util.List;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.hibernate4.Hibernate4Module;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,20 +44,6 @@ public class OperadorController
         try
         {
             return operadorService.buscarPerfis();
-        } 
-        
-        catch (Exception e)
-        {
-            return null;
-        } 
-    }
-
-    @RequestMapping(value = "/exibirStatus", method = RequestMethod.GET, produces = "application/json")
-    public @ResponseBody List<String> exibirStatus() throws JsonProcessingException 
-    {
-        try
-        {
-            return operadorService.buscarStatus();
         } 
         
         catch (Exception e)

@@ -1,0 +1,48 @@
+<div class="alert alert-danger" ng-show="errorMessage">
+    Erro ao Efetuar Login.
+</div>
+
+<div ng-controller="navigation as nav">
+    <div class="row" >
+        <div class="col-lg-3" style="padding: 3em; left: 35%">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <a class="panel-title" style="font-size: large">LOGIN</a>
+                </div>
+                <div class="panel-body">
+
+
+
+                    <form role="form" ng-submit="nav.login()">
+                        <fieldset>
+
+                            <div style="font-size: medium">
+                                <label>Usename</label>
+                            </div>
+
+                            <div class="form-group">
+                                <input class="form-control" autocomplete="false" placeholder="Username" name="Username" required="true" type="text" ng-model="nav.credentials.username">
+                            </div>
+
+                            <div style="font-size: medium">
+                                <label>Password</label>
+                            </div>
+
+                            <div class="form-group">
+                                <input class="form-control"  placeholder="Password" name="Password"  required="true" type="password" ng-model="nav.credentials.password">
+                            </div>
+
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Entrar</button>
+                            </div>
+
+
+
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

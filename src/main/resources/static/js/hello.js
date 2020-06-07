@@ -4,6 +4,7 @@ angular.module('hello',
             'operador',
             'pessoa',
             'inicio',
+            'auth',
             'navigation'
             
             
@@ -51,7 +52,8 @@ angular.module('hello',
 
                                     })
 
-                                /*
+                                    /*
+
                                 .when('/login',
                                     {
                                         templateUrl: 'js/navigation/login.html',
@@ -59,9 +61,10 @@ angular.module('hello',
                                         controllerAs: 'controller'
 
                                     })
-                                */
+
+                                    */
                                     
-                                .when('/warehouse',
+                                .when('/',
                                     {
                                         templateUrl: 'js/inicio/inicio.html',
                                         controller: 'inicio',
@@ -75,3 +78,8 @@ angular.module('hello',
                                 .common['X-Requested-With'] = 'XMLHttpRequest';
 
                 })
+
+                .run(function (auth)
+                {
+                    auth.init('/', '/login', '/logout');
+                });
