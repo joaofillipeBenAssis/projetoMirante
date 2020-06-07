@@ -6,6 +6,8 @@ import ProjetoMirante.services.OperadorService;
 import java.util.List;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.hibernate4.Hibernate4Module;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -53,17 +55,19 @@ public class OperadorController
     }
 
     @RequestMapping(value = "/exibirTodos", method = RequestMethod.GET, produces = "application/json")
-    public @ResponseBody List<Operador> exibirTodos() throws JsonProcessingException 
+    public ResponseEntity<?> exibirTodos() throws JsonProcessingException 
     {
+
         try
         {
-            return operadorService.buscarTodos();
+            return returnList(operadorService.buscarTodos());
         } 
         
         catch (Exception e)
         {
-            return null;
-        } 
+            e.printStackTrace();
+            return httpStatusInfo(e, HttpStatus.FORBIDDEN);
+        }
     }
 
     @RequestMapping(value = "/editar", method = RequestMethod.PUT, produces = "application/json")
@@ -79,6 +83,15 @@ public class OperadorController
         {
             return httpStatusInfo(e, HttpStatus.FORBIDDEN);
         }
+    }
+
+    private ResponseEntity<?> returnList(Object object) throws JsonProcessingException
+    {
+        ObjectMapper mapper = new ObjectMapper();
+
+        mapper.registerModule(new Hibernate4Module().disable(Hibernate4Module.Feature.USE_TRANSIENT_ANNOTATION));
+
+        return new ResponseEntity<>(mapper.writer().writeValueAsString(object), HttpStatus.OK);
     }
 
     public ResponseEntity<Object> httpStatusInfo(final Object msg, final HttpStatus h)

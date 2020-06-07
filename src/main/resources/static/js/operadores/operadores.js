@@ -3,11 +3,9 @@ angular.module('operador', [])
     .controller('operador', function ($scope, $http)
     {
         $scope.perfis = [];
-        $scope.status = [];
         $scope.operadores = [];
 
         $scope.operador = {};
-        $scope.cadastrado = {};
 
         $scope.mostrarEditar = false;
         $scope.mostrarCadastrado = false;
@@ -18,15 +16,6 @@ angular.module('operador', [])
                 .then(function (data)
                 {
                     $scope.perfis = data.data;
-                })
-        };
-
-        $scope.buscarStatus = function ()
-        {
-            $http.get("operador/exibirStatus")
-                .then(function (data)
-                {
-                    $scope.status = data.data;
                 })
         };
 
@@ -52,7 +41,7 @@ angular.module('operador', [])
             novoOperador.login = angular.copy(operador.login);
             novoOperador.perfil = angular.copy(operador.perfil);
 
-            $scope.cadastrado = angular.copy(operador);
+            $scope.operador = angular.copy(operador);
 
             $http
                     ({

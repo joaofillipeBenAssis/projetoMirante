@@ -1,9 +1,11 @@
 package ProjetoMirante.services;
 
 import ProjetoMirante.entidades.Operador;
-import ProjetoMirante.enums.OperadorEnum;
-import ProjetoMirante.enums.StatusEnum;
+import ProjetoMirante.entidades.Pessoa;
+import ProjetoMirante.enums.PessoaEnum;
+import ProjetoMirante.enums.TelefoneEnum;
 import ProjetoMirante.repository.OperadorRepository;
+import ProjetoMirante.repository.PessoaRepository;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -17,20 +19,25 @@ public class PessoaService
     @Autowired
     private OperadorRepository operadorRepository;
 
+    @Autowired
+    private PessoaRepository pessoaRepository;
+
     @Transactional
-    public void adicionarOperador(Operador operador) throws Exception
+    public void adicionarPessoa(Pessoa pessoa,  Operador operador) throws Exception
     {
         try
         {
-            if (buscarOperador(operador.getLogin()) != null)
+            if (buscarPessoa(pessoa.getDocumento()) != null)
             {
-                throw new Exception("Operaddor já cadastrado.");
+                throw new Exception("Pessoa já cadastrada.");
             }
 
-            operador.setDataCadastro(new Date());
-            operador.setAtivo(operador.isAtivo());
+            Operador o = operadorRepository.buscarOperador(operador.getLogin());
+            
+            pessoa.setDataCadastro(new Date());
+            pessoa.setOperador(o);
 
-            salvar(operador);
+            pessoaRepository.save(pessoa);
         } 
 
         catch (final Exception e)
@@ -40,43 +47,43 @@ public class PessoaService
     }
 
     @Transactional (readOnly = true)
-    public Operador buscarOperador(String login)
+    public Pessoa buscarPessoa(String documento)
     {
-        return operadorRepository.buscarOperador(login);
+        return pessoaRepository.buscarPessoa(documento);
     }
 
     @Transactional (readOnly = true)
-    public ArrayList<Operador> buscarTodos()
+    public ArrayList<Pessoa> buscarPessoas()
     {
-        ArrayList<Operador> operadores = new ArrayList<>();
+        ArrayList<Pessoa> pessoas = new ArrayList<>();
 
-        for(Operador o : operadorRepository.buscarOperadores())
+        for(Pessoa p : pessoaRepository.buscarPessoas())
         {
-            operadores.add(o);
+            pessoas.add(p);
         }
 
-        return operadores;
+        return pessoas;
     }
 
-    public ArrayList<String> buscarPerfis()
+    public ArrayList<String> buscarTiposPessoa()
     {
-        ArrayList<String> perfis = new ArrayList<>();
+        ArrayList<String> tiposPessoas = new ArrayList<>();
         
-        perfis.add(OperadorEnum.ADMINISTRADOR.getTipoOperador());
-        perfis.add(OperadorEnum.ANALISTA.getTipoOperador());
-        perfis.add(OperadorEnum.GERENTE.getTipoOperador());
+        tiposPessoas.add(PessoaEnum.FISICA.getTipoPessoa());
+        tiposPessoas.add(PessoaEnum.JURÍDICA.getTipoPessoa());
 
-        return perfis ;
+        return tiposPessoas;
     }
 
-    public ArrayList<String> buscarStatus()
+    public ArrayList<String> buscarTipoTelefone()
     {
-        ArrayList<String> status = new ArrayList<>();
+        ArrayList<String> tiposTelefone = new ArrayList<>();
         
-        status.add(StatusEnum.ATIVO.getStatus());
-        status.add(StatusEnum.INATIVO.getStatus());
+        tiposTelefone.add(TelefoneEnum.CELULAR.getTipoTelefone());
+        tiposTelefone.add(TelefoneEnum.COMERCIAL.getTipoTelefone());
+        tiposTelefone.add(TelefoneEnum.FIXO.getTipoTelefone());
 
-        return status ;
+        return tiposTelefone ;
     }
 
     @Transactional
@@ -84,10 +91,13 @@ public class PessoaService
     {
         try
         {
+            /*
             operador.editar
             (operador.getNome(), operador.getLogin(), operador.getPerfil(), operador.isAtivo());
 
-            salvar(operador);
+            ope(operador);
+
+            */
         } 
         
         catch (Exception e)
@@ -96,8 +106,4 @@ public class PessoaService
         }
     }
 
-    public Operador salvar(final Operador operador)
-    {
-        return operadorRepository.save(operador);
-    }
 }

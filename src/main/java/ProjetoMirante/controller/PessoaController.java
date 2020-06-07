@@ -1,10 +1,10 @@
 package ProjetoMirante.controller;
 
 import ProjetoMirante.entidades.Operador;
-import ProjetoMirante.enums.OperadorEnum;
+import ProjetoMirante.entidades.Pessoa;
 import ProjetoMirante.services.OperadorService;
+import ProjetoMirante.services.PessoaService;
 
-import java.util.Date;
 import java.util.List;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -28,11 +28,16 @@ public class PessoaController
     @Autowired
     private OperadorService operadorService;
 
+    @Autowired
+    private PessoaService pessoaService;
+
     @RequestMapping(value = "/salvar", method = RequestMethod.POST)
-    public ResponseEntity<?> salvar(@RequestBody Operador operador) {
+    public ResponseEntity<?> salvar(@RequestBody Pessoa pessoa) {
         try 
         {
-            operadorService.adicionarOperador(operador);
+            Operador operador = buscarUsuario();
+
+            pessoaService.adicionarPessoa(pessoa, operador);
             return null;
         }
 
@@ -43,12 +48,12 @@ public class PessoaController
 
     }
 
-    @RequestMapping(value = "/exibirPerfis", method = RequestMethod.GET, produces = "application/json")
-    public @ResponseBody List<String> exibirPerfis() throws JsonProcessingException 
+    @RequestMapping(value = "/exibirTiposPessoa", method = RequestMethod.GET, produces = "application/json")
+    public @ResponseBody List<String> exibirTiposPessoa() throws JsonProcessingException 
     {
         try
         {
-            return operadorService.buscarPerfis();
+            return pessoaService.buscarTiposPessoa();
         } 
         
         catch (Exception e)
@@ -57,34 +62,39 @@ public class PessoaController
         } 
     }
 
-
-    @RequestMapping(value = "/exibirTodos", method = RequestMethod.GET, produces = "application/json")
-    public @ResponseBody List<Operador> exibirTodos() throws JsonProcessingException 
+    @RequestMapping(value = "/exibirPessoas", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<?> exibirPessoas() throws JsonProcessingException 
     {
+
         try
         {
-            return operadorService.buscarTodos();
+            return returnList(pessoaService.buscarPessoas());
         } 
         
         catch (Exception e)
         {
-            return null;
-        } 
-    }
-
-    @RequestMapping(value = "/editar", method = RequestMethod.PUT, produces = "application/json")
-    public ResponseEntity<?> editar(@RequestBody Operador operador)
-    {
-        try
-        {
-            operadorService.editarOperador(operador);
-            return httpStatusInfo(null, HttpStatus.OK);
-        } 
-        
-        catch (Exception e)
-        {
+            e.printStackTrace();
             return httpStatusInfo(e, HttpStatus.FORBIDDEN);
         }
+    }
+
+    private Operador buscarUsuario()
+    {        
+        return convertePrincipal((org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+    }
+
+    private Operador convertePrincipal(org.springframework.security.core.userdetails.User o)
+    {
+        return operadorService.buscarOperador(o.getUsername());
+    }
+
+    private ResponseEntity<?> returnList(Object object) throws JsonProcessingException
+    {
+        ObjectMapper mapper = new ObjectMapper();
+
+        mapper.registerModule(new Hibernate4Module().disable(Hibernate4Module.Feature.USE_TRANSIENT_ANNOTATION));
+
+        return new ResponseEntity<>(mapper.writer().writeValueAsString(object), HttpStatus.OK);
     }
 
     public ResponseEntity<Object> httpStatusInfo(final Object msg, final HttpStatus h)

@@ -6,14 +6,13 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-import ProjetoMirante.entidades.Operador;
 import ProjetoMirante.entidades.Pessoa;
 
 public interface PessoaRepository extends CrudRepository<Pessoa, Long>
 {
-    @Query("Select o from Operador o where o.login = :login")
-    Operador buscarOperador(@Param("login") String login);
+    @Query("Select p from Pessoa p where p.documento = :documento")
+    Pessoa buscarPessoa(@Param("documento") String documento);
 
-    @Query("Select o from Operador o order by o.nome asc")
-    ArrayList<Operador> buscarOperadores();
+    @Query("Select p from Pessoa p order by p.nome asc")
+    ArrayList<Pessoa> buscarPessoas();
 }

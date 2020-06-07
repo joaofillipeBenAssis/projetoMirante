@@ -3,7 +3,6 @@ package ProjetoMirante.services;
 import ProjetoMirante.entidades.Operador;
 import ProjetoMirante.entidades.Role;
 import ProjetoMirante.enums.OperadorEnum;
-import ProjetoMirante.enums.StatusEnum;
 import ProjetoMirante.repository.OperadorRepository;
 import ProjetoMirante.repository.RoleRepository;
 
@@ -29,24 +28,20 @@ public class OperadorService
     {
         try
         {
-            
-
-            System.out.println("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-            System.out.println("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-            System.out.println(operador);
-
-            /*
             if (buscarOperador(operador.getLogin()) != null)
             {
                 throw new Exception("Operaddor já cadastrado.");
             }
 
-            Role role = roleRepository.buscarRole(operador.getPerfil());
-
-            if(role == null)
+            Role role = new Role();
+        
+            if(roleRepository.buscarRole(operador.getPerfil()) == null)
             {
+                role.setDescription(operador.getPerfil());
                 roleRepository.save(role);
             }
+
+            role = roleRepository.buscarRole(operador.getPerfil());
 
             List<Role> roles = new ArrayList<>();
             roles.add(role);
@@ -54,9 +49,7 @@ public class OperadorService
             operador.setDataCadastro(new Date());
             operador.setRoles(roles);
 
-            */
-
-            //salvar(operador);
+            salvar(operador);
         } 
 
         catch (final Exception e)

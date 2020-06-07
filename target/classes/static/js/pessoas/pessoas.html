@@ -1,28 +1,28 @@
 <div class="margin-page">
 
-    <div class="col-lg-6">
-        <h4>OPERADORES CADASTRADOS</h4>
+    <div class="col-lg-7">
+        <h4>PESSOAS CADASTRADAS</h4>
         <hr/>
 
         <table class="table table-striped">
             <thead>
               <tr>
-                <th scope="col">#Código</th>
                 <th scope="col">Nome</th>
-                <th scope="col">Login</th>
-                <th scope="col">Perfil</th>
-                <th scope="col">Status</th>
+                <th scope="col">Documento</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Data de Cadastro</th>
+                <th scope="col">Operador</th>
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="o in operadores">
-                <th scope="row">{{o.id}}</th>
-                <td>{{o.nome}}</td>
-                <td>{{o.login}}</td>
-                <td>{{o.perfil}}</td>
-                <td>{{o.status}}</td>
+              <tr ng-repeat="p in pessoas">
+                <td>{{p.nome}}</td>
+                <td>{{p.documento}}</td>
+                <td>{{p.tipoPessoa}}</td>
+                <td>{{p.dataCadastro}}</td>
+                <td>{{p.operador.nome}}</td>
                 <td>
-                    <input type="button" class="btn btn-success" value="Editar" ng-click="selecionar(o)"  />
+                    <input type="button" class="btn btn-warning" value="Detalhe" ng-click="selecionar(o)"  />
                 </td>
               </tr>
             </tbody>
@@ -30,7 +30,7 @@
 
     </div>
 
-    <div ng-show="mostrarEditar" class="col-lg-6">
+    <div ng-show="mostrarEditar" class="col-lg-5">
         <h4>EDITAR OPERADOR</h4>
         <hr/>
 

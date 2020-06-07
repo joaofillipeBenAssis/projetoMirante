@@ -2,40 +2,30 @@ angular.module('pessoa', [])
 
     .controller('pessoa', function ($scope, $http)
     {
-        $scope.perfis = [];
-        $scope.status = [];
-        $scope.operadores = [];
+        $scope.tiposPessoa = [];
+        $scope.pessoas = [];
 
-        $scope.operador = {};
-        $scope.cadastrado = {};
+        $scope.pessoa = {};
 
         $scope.mostrarEditar = false;
         $scope.mostrarCadastrado = false;
 
-        $scope.buscarPerfis = function ()
+        $scope.buscarTiposPessoa = function ()
         {
-            $http.get("operador/exibirPerfis")
+            $http.get("pessoa/exibirTiposPessoa")
                 .then(function (data)
                 {
-                    $scope.perfis = data.data;
+                    $scope.tiposPessoa = data.data;
                 })
         };
 
-        $scope.buscarStatus = function ()
+        $scope.buscarPessoas = function ()
         {
-            $http.get("operador/exibirStatus")
+            $http.get("pessoa/exibirPessoas")
                 .then(function (data)
                 {
-                    $scope.status = data.data;
-                })
-        };
-
-        $scope.buscarOperadores = function ()
-        {
-            $http.get("operador/exibirTodos")
-                .then(function (data)
-                {
-                    $scope.operadores = data.data;
+                    $scope.pessoas = data.data;
+                    console.log($scope.pessoas);
                 })
         };
 
@@ -45,21 +35,21 @@ angular.module('pessoa', [])
             $scope.mostrarEditar = true;
         }
 
-        $scope.salvarOperador = function (operador)
+        $scope.salvarPessoa = function (pessoa)
         {
-            var novoOperador = {};
-            novoOperador.nome = angular.copy(operador.nome);
-            novoOperador.login = angular.copy(operador.login);
-            novoOperador.senha = angular.copy(operador.senha);
-            novoOperador.perfil = angular.copy(operador.perfil);
+            var novaPessoa = {};
+            novaPessoa.nome = angular.copy(pessoa.nome);
+            novaPessoa.tipoPessoa = angular.copy(pessoa.tipoPessoa);
+            novaPessoa.documento = angular.copy(pessoa.documento);
+            novaPessoa.dataNascimento = angular.copy(pessoa.dataNascimento);
 
-            $scope.cadastrado = angular.copy(operador);
+            $scope.pessoa = angular.copy(pessoa);
 
             $http
                     ({
                         method: "POST",
-                        url: "/operador/salvar",
-                        data: novoOperador
+                        url: "/pessoa/salvar",
+                        data: novaPessoa
                     })
 
                     .success(function ()
@@ -73,7 +63,7 @@ angular.module('pessoa', [])
             var novoOperador = angular.copy($scope.operador);
             novoOperador.nome =  angular.copy(operador.nome);
             novoOperador.login = angular.copy(operador.login);
-            novoOperador.status = angular.copy(operador.status);
+            novoOperador.ativo = angular.copy(operador.ativo);
             novoOperador.perfil = angular.copy(operador.perfil);
             
             console.log(novoOperador);
@@ -96,7 +86,6 @@ angular.module('pessoa', [])
                 });
         };
 
-        $scope.buscarPerfis();
-        $scope.buscarStatus();
-        $scope.buscarOperadores();
+        $scope.buscarTiposPessoa();
+        $scope.buscarPessoas();
     });

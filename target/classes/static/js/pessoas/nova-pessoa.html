@@ -9,21 +9,23 @@
 
             <div class="panel-body borda">
 
-                <form role="form" ng-submit="salvarOperador(operador)">
+                <form role="form" ng-submit="salvarPessoa(pessoa)">
                     
                     <label>Nome:</label>
-                    <input ng-model="operador.nome" type="text" name="login" required="true" class="form-control">
+                    <input ng-model="pessoa.nome" type="text" name="nome" required="true" class="form-control">
 
-                    <label>LogIn:</label>
-                    <input ng-model="operador.login" type="text" name="login" required="true" class="form-control">
-
-                    <label>Senha:</label>
-                    <input ng-model="operador.senha" type="password" name="senha" required="true" class="form-control">
-
-                    <label>Selecionar Perfil:</label>
-                    <select ng-model="operador.perfil"  name="perfis" id="perfis"  required="true" class="form-control title-15">
-                        <option ng-repeat="p in perfis">{{p}}</option>
+                    <label>Tipo:</label>
+                    <select ng-model="pessoa.tipoPessoa"  name="tipoPessoa" id="tipoPessoa"  required="true" class="form-control title-15">
+                        <option ng-repeat="tp in tiposPessoa">{{tp}}</option>
                     </select>
+                    
+                    <label>Documento:</label>
+                    <input ng-model="pessoa.documento" type="text" name="documento" required="true" class="form-control">
+
+                    <label>Data de Nascimento:</label>
+                    <input ng-model="pessoa.dataNascimento" type="date" name="dataNascimento" required="true" class="form-control">
+
+                    
 
                     <br>
 
