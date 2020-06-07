@@ -28,7 +28,6 @@ public class OperadorService
             }
 
             operador.setDataCadastro(new Date());
-            operador.setAtivo(operador.isAtivo());
 
             salvar(operador);
         } 

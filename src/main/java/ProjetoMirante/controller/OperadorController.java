@@ -30,12 +30,14 @@ public class OperadorController
 
     @RequestMapping(value = "/salvar", method = RequestMethod.POST)
     public ResponseEntity<?> salvar(@RequestBody Operador operador) {
-        try {
+        try 
+        {
             operadorService.adicionarOperador(operador);
             return null;
         }
 
-        catch (final Exception e) {
+        catch (final Exception e) 
+        {
             return httpStatusInfo("Erro ao Salvar Operador. Tente Novamente.", HttpStatus.FORBIDDEN);
         }
 

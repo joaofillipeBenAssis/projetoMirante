@@ -50,7 +50,6 @@ angular.module('operador', [])
             var novoOperador = {};
             novoOperador.nome = angular.copy(operador.nome);
             novoOperador.login = angular.copy(operador.login);
-            novoOperador.senha = angular.copy(operador.senha);
             novoOperador.perfil = angular.copy(operador.perfil);
 
             $scope.cadastrado = angular.copy(operador);
@@ -73,7 +72,7 @@ angular.module('operador', [])
             var novoOperador = angular.copy($scope.operador);
             novoOperador.nome =  angular.copy(operador.nome);
             novoOperador.login = angular.copy(operador.login);
-            novoOperador.status = angular.copy(operador.status);
+            novoOperador.ativo = angular.copy(operador.ativo);
             novoOperador.perfil = angular.copy(operador.perfil);
             
             console.log(novoOperador);

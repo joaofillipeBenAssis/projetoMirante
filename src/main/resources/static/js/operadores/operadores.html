@@ -46,17 +46,20 @@
                     <label>LogIn:</label>
                     <input ng-model="operador.login" type="text" name="login" required="true" class="form-control">
 
-                    <label>Selecionar Status:</label>
-                    <select ng-model="operador.status"  name="perfis" id="perfis"  required="true" class="form-control title-15">
-                        <option ng-repeat="s in status">{{s}}</option>
-                    </select>
-
                     <label>Selecionar Perfil:</label>
                     <select ng-model="operador.perfil"  name="perfis" id="perfis"  required="true" class="form-control title-15">
                         <option ng-repeat="p in perfis">{{p}}</option>
                     </select>
 
                     <br>
+
+                    <label>Status:</label>
+                    <input ng-model="operador.ativo" type="radio" value="true" name="ativo" required="true">
+                    <label>Ativo</label>
+                    <input ng-model="operador.ativo" type="radio" value="false" name="ativo" required="true">
+                    <label>Inativo</label>
+
+                    <hr/>
 
                     <div class="btn-s text-center">
                         <input type="submit" value="SALVAR" class="btn btn-primary">
