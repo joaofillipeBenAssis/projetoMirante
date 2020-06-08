@@ -2,10 +2,12 @@ package ProjetoMirante.services;
 
 import ProjetoMirante.entidades.Operador;
 import ProjetoMirante.entidades.Pessoa;
+import ProjetoMirante.entidades.Telefone;
 import ProjetoMirante.enums.PessoaEnum;
 import ProjetoMirante.enums.TelefoneEnum;
 import ProjetoMirante.repository.OperadorRepository;
 import ProjetoMirante.repository.PessoaRepository;
+import ProjetoMirante.repository.TelefoneRepository;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -21,6 +23,9 @@ public class PessoaService
 
     @Autowired
     private PessoaRepository pessoaRepository;
+
+    @Autowired
+    private TelefoneRepository telefoneRepository;
 
     @Transactional
     public void adicionarPessoa(Pessoa pessoa,  Operador operador) throws Exception
@@ -42,7 +47,34 @@ public class PessoaService
 
         catch (final Exception e)
         {
-             throw new  Exception("Erro ao adicionar Administrador.");
+             throw new  Exception("Erro ao adicionar Pessoa.");
+        }
+    }
+
+    @Transactional
+    public void adicionarTelefone(Pessoa pessoa,  Operador operador, Telefone telefone) throws Exception
+    {
+        try
+        {
+            if (buscarTelefone(telefone.getNumero()) != null)
+            {
+                throw new Exception("Telefone já cadastrado.");
+            }
+
+            Operador o = operadorRepository.buscarOperador(operador.getLogin());
+            Pessoa p = buscarPessoa(pessoa.getDocumento());
+
+            
+            telefone.setDataCadastro(new Date());
+            telefone.setOperador(o);
+            telefone.setPessoa(p);
+
+            telefoneRepository.save(telefone);
+        } 
+
+        catch (final Exception e)
+        {
+             throw new  Exception("Erro ao adicionar Telefone.");
         }
     }
 
@@ -50,6 +82,12 @@ public class PessoaService
     public Pessoa buscarPessoa(String documento)
     {
         return pessoaRepository.buscarPessoa(documento);
+    }
+
+    @Transactional (readOnly = true)
+    public Telefone buscarTelefone(String telefone)
+    {
+        return telefoneRepository.buscarTelefone(telefone);
     }
 
     @Transactional (readOnly = true)
@@ -65,6 +103,19 @@ public class PessoaService
         return pessoas;
     }
 
+    @Transactional (readOnly = true)
+    public ArrayList<Telefone> buscarTelefones(long id)
+    {
+        ArrayList<Telefone> telefones = new ArrayList<>();
+
+        for(Telefone t : telefoneRepository.buscarPorPessoaId(id))
+        {
+            telefones.add(t);
+        }
+
+        return telefones;
+    }
+
     public ArrayList<String> buscarTiposPessoa()
     {
         ArrayList<String> tiposPessoas = new ArrayList<>();
@@ -75,7 +126,7 @@ public class PessoaService
         return tiposPessoas;
     }
 
-    public ArrayList<String> buscarTipoTelefone()
+    public ArrayList<String> buscarTiposTelefone()
     {
         ArrayList<String> tiposTelefone = new ArrayList<>();
         

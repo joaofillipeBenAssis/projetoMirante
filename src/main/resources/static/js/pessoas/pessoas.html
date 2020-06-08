@@ -22,7 +22,7 @@
                 <td>{{p.dataCadastro}}</td>
                 <td>{{p.operador.nome}}</td>
                 <td>
-                    <input type="button" class="btn btn-warning" value="Detalhe" ng-click="selecionar(o)"  />
+                    <input type="button" class="btn btn-warning" value="Detalhe" ng-click="selecionarPessoa(p)"  />
                 </td>
               </tr>
             </tbody>
@@ -30,35 +30,32 @@
 
     </div>
 
-    <div ng-show="mostrarEditar" class="col-lg-5">
-        <h4>EDITAR OPERADOR</h4>
-        <hr/>
+    <div ng-show="mostrarDetalhe" class="col-lg-5">
 
-        <div class="panel panel-default">
+        <div ng-show="mostrarSalvarTelefone">
 
-            <div class="panel-body borda">
+            <h4>ADICIONAR TELEFONE</h4>
+            <hr/>
 
-                <form role="form" ng-submit="editarOperador(operador)">
+            <div class="panel panel-body borda">
+
+                <form role="form" ng-submit="salvarTelefone(telefone)">
                     
-                    <label>Nome:</label>
-                    <input ng-model="operador.nome" type="text" name="login" required="true" class="form-control">
+                    <label>DDD:</label>
+                    <input ng-model="telefone.ddd" type="text" name="ddd" required="true" class="form-control">
 
-                    <label>LogIn:</label>
-                    <input ng-model="operador.login" type="text" name="login" required="true" class="form-control">
+                    <label>Número:</label>
+                    <input ng-model="telefone.numero" type="text" name="numero" required="true" class="form-control">
 
-                    <label>Selecionar Status:</label>
-                    <select ng-model="operador.status"  name="perfis" id="perfis"  required="true" class="form-control title-15">
-                        <option ng-repeat="s in status">{{s}}</option>
-                    </select>
-
-                    <label>Selecionar Perfil:</label>
-                    <select ng-model="operador.perfil"  name="perfis" id="perfis"  required="true" class="form-control title-15">
-                        <option ng-repeat="p in perfis">{{p}}</option>
+                    <label>Tipo:</label>
+                    <select ng-model="telefone.tipoTelefone"  name="tipoTelefone" id="tipoTelefone"  required="true" class="form-control title-15">
+                        <option ng-repeat="tp in tiposTelefone">{{tp}}</option>
                     </select>
 
                     <br>
 
-                    <div class="btn-s text-center">
+                    <div class="btn-s text-center form-group">
+                        <input ng-click="toggleSalvarTelefone()" type="button" value="CANCELAR" class="btn btn-danger">
                         <input type="submit" value="SALVAR" class="btn btn-primary">
                     </div>
                                    
@@ -67,6 +64,72 @@
             </div>
 
         </div>
+
+        <div ng-show="mostrarEditarTelefone">
+
+            <h4>EDITAR TELEFONE</h4>
+            <hr/>
+
+            <div class="panel panel-body borda">
+
+                <form role="form" ng-submit="editarTelefone(telefone)">
+                    
+                    <label>DDD:</label>
+                    <input ng-model="telefone.ddd" type="text" name="ddd" required="true" class="form-control">
+
+                    <label>Número:</label>
+                    <input ng-model="telefone.numero" type="text" name="numero" required="true" class="form-control">
+
+                    <label>Tipo:</label>
+                    <select ng-model="telefone.tipoTelefone"  name="perfis" id="perfis"  required="true" class="form-control title-15">
+                        <option ng-repeat="tp in tiposTelefone">{{tp}}</option>
+                    </select>
+
+                    <br>
+
+                    <div class="btn-s text-center form-group">
+                        <input ng-click="toggleEditarTelefone()" type="button" value="CANCELAR" class="btn btn-danger">
+                        <input type="submit" value="SALVAR" class="btn btn-primary">
+                    </div>      
+                </form>
+
+            </div>
+
+        </div>
+
+        <h4>INFORMAÇÕES PESSOAIS</h4>
+        <hr/>
+
+        <div class="text-center bold-17">
+            <p>{{pessoa.nome}}</p>
+            <p>{{pessoa.documento}}</p>
+            <p>{{pessoa.dataNascimento}}</p>
+        </div>
+
+        <h4>CONTATOS</h4>
+
+        <div class="pull-right">
+            <input type="button" class="btn btn-primary" value="Cadastrar" ng-click="toggleSalvarTelefone()"  />
+        </div>
+
+        <table class="table">
+     
+            <tbody>
+
+                <tr ng-repeat="t in telefones">
+                    <th>{{t.tipoTelefone}}</th>
+                    <td>({{t.ddd}}) {{t.numero}}</td>
+                    <td>{{t.dataCadastro}}</td>
+                    <td>{{t.operador.nome}}</td>
+                    <td>
+                        <input type="button" class="btn btn-default" value="Editar" ng-click="selecionarTelefone(t)"  />
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>   
 
     </div>
 

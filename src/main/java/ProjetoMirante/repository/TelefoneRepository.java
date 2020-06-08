@@ -6,14 +6,13 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-import ProjetoMirante.entidades.Operador;
-import ProjetoMirante.entidades.Pessoa;
+import ProjetoMirante.entidades.Telefone;
 
-public interface TelefoneRepository extends CrudRepository<Pessoa, Long>
+public interface TelefoneRepository extends CrudRepository<Telefone, Long>
 {
-    @Query("Select o from Operador o where o.login = :login")
-    Operador buscarOperador(@Param("login") String login);
+    @Query("Select t from Telefone t where t.numero = :telefone")
+    Telefone buscarTelefone(@Param("telefone") String telefone);
 
-    @Query("Select o from Operador o order by o.nome asc")
-    ArrayList<Operador> buscarOperadores();
+    @Query("Select t from Telefone t where t.pessoa.id = :id order by t.tipoTelefone asc")
+    ArrayList<Telefone> buscarPorPessoaId(@Param("id") long id);
 }
