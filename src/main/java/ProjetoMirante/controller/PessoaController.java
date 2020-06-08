@@ -127,6 +127,23 @@ public class PessoaController
         }
     }
 
+    @RequestMapping(value = "/editarTelefone", method = RequestMethod.PUT, produces = "application/json")
+    public ResponseEntity<?> editarTelefone(@RequestBody Telefone telefone)  throws Exception
+    {
+        try 
+        {  
+            pessoaService.editarTelefone(telefone);
+            return null;
+        } 
+        
+        catch (Exception e) 
+        {
+            throw e;
+        }
+
+        
+    }
+
     private Operador buscarUsuario()
     {        
         return convertePrincipal((org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());

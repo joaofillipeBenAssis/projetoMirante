@@ -138,17 +138,16 @@ public class PessoaService
     }
 
     @Transactional
-    public void editarOperador(Operador operador) throws Exception
+    public void editarTelefone(Telefone telefone) throws Exception
     {
         try
         {
-            /*
-            operador.editar
-            (operador.getNome(), operador.getLogin(), operador.getPerfil(), operador.isAtivo());
+            Telefone t = buscarTelefone(telefone.getNumero());
 
-            ope(operador);
+            t.editar
+            (telefone.getDdd(), telefone.getNumero(), telefone.getTipoTelefone());
 
-            */
+            telefoneRepository.save(telefone);
         } 
         
         catch (Exception e)

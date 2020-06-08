@@ -60,7 +60,6 @@ angular.module('pessoa', [])
                 .then(function (data)
                 {
                     $scope.telefones = data.data;
-                    console.log($scope.telefones)
                 })
 
                 .catch(function (data)
@@ -130,26 +129,24 @@ angular.module('pessoa', [])
                     })
         };
 
-        $scope.editarOperador = function (operador)
+        $scope.editarTelefone = function (telefone)
         {
-            var novoOperador = angular.copy($scope.operador);
-            novoOperador.nome =  angular.copy(operador.nome);
-            novoOperador.login = angular.copy(operador.login);
-            novoOperador.ativo = angular.copy(operador.ativo);
-            novoOperador.perfil = angular.copy(operador.perfil);
-            
-            console.log(novoOperador);
+            var novoTelefone = angular.copy($scope.telefone);
+            novoTelefone.ddd =  angular.copy(telefone.ddd);
+            novoTelefone.numero = angular.copy(telefone.numero);
+            novoTelefone.tipoTelefone = angular.copy(telefone.tipoTelefone);
 
             $http
                 ({
                     method: "PUT",
-                    url: "/operador/editar",
-                    data: novoOperador
+                    url: "/pessoa/editarTelefone",
+                    data: novoTelefone
                 })
 
                 .success(function ()
                 {
                     $scope.buscarTelefones();
+                    $scope.mostrarEditarTelefone = false;
                 })
         };
 

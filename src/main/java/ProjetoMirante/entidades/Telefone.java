@@ -97,8 +97,10 @@ public class Telefone implements Serializable
         return "Telefone{" + "id=" + id + ", ddd=" + ddd + ", numero=" + numero + ", tipoTelefone=" + tipoTelefone + ", dataCadastro=" + dataCadastro + ", pessoa=" + pessoa + ", operador=" + operador + '}';
     }
 
-    public void editar(String nome, String login, String perfil, String status)
+    public void editar(String ddd, String numero, String tipoTelefone)
     {
-        
+        this.setDdd(ddd);
+        this.setNumero(numero);
+        this.setTipoTelefone(tipoTelefone);
     }
 }
