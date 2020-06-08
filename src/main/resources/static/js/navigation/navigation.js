@@ -14,6 +14,7 @@ angular.module('navigation', ['ngRoute', 'auth'])
                 .then(function (data)
                 {
                     $scope.operador = data.data;
+                    console.log($scope.operador)
                 })
         };
 

@@ -142,9 +142,8 @@ public class PessoaService
     {
         try
         {
-            Telefone t = buscarTelefone(telefone.getNumero());
 
-            t.editar
+            telefone.editar
             (telefone.getDdd(), telefone.getNumero(), telefone.getTipoTelefone());
 
             telefoneRepository.save(telefone);

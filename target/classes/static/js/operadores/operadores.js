@@ -64,8 +64,6 @@ angular.module('operador', [])
             novoOperador.ativo = angular.copy(operador.ativo);
             novoOperador.perfil = angular.copy(operador.perfil);
             
-            console.log(novoOperador);
-
             $http
                 ({
                     method: "PUT",
@@ -76,12 +74,8 @@ angular.module('operador', [])
                 .success(function ()
                 {
                     $scope.buscarOperadores();
-                })
-
-                .error(function (data)
-                {
-                    console.log("erro ao alterar produto!!");
                 });
+
         };
 
         $scope.buscarPerfis();

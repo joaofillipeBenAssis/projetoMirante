@@ -19,7 +19,7 @@
                 <td>{{p.nome}}</td>
                 <td>{{p.documento}}</td>
                 <td>{{p.tipoPessoa}}</td>
-                <td>{{p.dataCadastro}}</td>
+                <td>{{p.dataCadastro | date:'dd/MM/yyyy'}}</td>
                 <td>{{p.operador.nome}}</td>
                 <td>
                     <input type="button" class="btn btn-warning" value="Detalhe" ng-click="selecionarPessoa(p)"  />
@@ -103,10 +103,10 @@
         <div class="text-center bold-17">
             <p>{{pessoa.nome}}</p>
             <p>{{pessoa.documento}}</p>
-            <p>{{pessoa.dataNascimento}}</p>
+            <p>{{pessoa.dataNascimento | date:'dd/MM/yyyy'}}</p>
         </div>
 
-        <div class="pull-right">
+        <div ng-if="operador.perfil == 'Analista'" class="pull-right">
             <input type="button" class="btn btn-primary" value="Cadastrar" ng-click="toggleSalvarTelefone()"  />
         </div>
 
@@ -117,9 +117,9 @@
                 <tr ng-repeat="t in telefones">
                     <th>{{t.tipoTelefone}}</th>
                     <td>({{t.ddd}}) {{t.numero}}</td>
-                    <td>{{t.dataCadastro}}</td>
+                    <td>{{t.dataCadastro | date:'dd/MM/yyyy'}}</td>
                     <td>{{t.operador.nome}}</td>
-                    <td>
+                    <td ng-if="operador.perfil == 'Analista'"> 
                         <input type="button" class="btn btn-default" value="Editar" ng-click="selecionarTelefone(t)"  />
                     </td>
 

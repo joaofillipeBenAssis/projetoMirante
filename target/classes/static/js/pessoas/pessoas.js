@@ -8,12 +8,25 @@ angular.module('pessoa', [])
         $scope.telefones = [];
 
         $scope.pessoa = {};
+        $scope.cadastro = {};
         $scope.telefone = {};
+        $scope.operador = {};
 
         $scope.mostrarDetalhe = false;
         $scope.mostrarCadastrado = false;
         $scope.mostrarSalvarTelefone = false;
         $scope.mostrarEditarTelefone = false;
+
+        $scope.buscarUsuario = function ()
+        {
+            $http.get("operador/exibirUsuario")
+                .then(function (data)
+                {
+                    $scope.operador = data.data;
+                    console.log($scope.operador)
+                })
+        };
+
 
         $scope.buscarTiposPessoa = function ()
         {
@@ -61,11 +74,6 @@ angular.module('pessoa', [])
                 {
                     $scope.telefones = data.data;
                 })
-
-                .catch(function (data)
-                {
-                    console.log("Erro buscar Telefones");
-                });
         };
 
         $scope.selecionarPessoa = function (pessoa)
@@ -73,6 +81,8 @@ angular.module('pessoa', [])
             $scope.pessoa = angular.copy(pessoa);
             $scope.buscarTelefones();
             $scope.mostrarDetalhe = true;
+            $scope.mostrarSalvarTelefone = false;
+            $scope.mostrarEditarTelefone = false;
         }
 
         $scope.selecionarTelefone = function (telefone)
@@ -90,8 +100,6 @@ angular.module('pessoa', [])
             novaPessoa.documento = angular.copy(pessoa.documento);
             novaPessoa.dataNascimento = angular.copy(pessoa.dataNascimento);
 
-            $scope.pessoa = angular.copy(pessoa);
-
             $http
                     ({
                         method: "POST",
@@ -101,6 +109,7 @@ angular.module('pessoa', [])
 
                     .success(function ()
                     {
+                        $scope.cadastro = angular.copy(pessoa);
                         $scope.mostrarCadastrado = true;
                     })
         };
@@ -150,6 +159,12 @@ angular.module('pessoa', [])
                 })
         };
 
+        $scope.formatDate = function(date)
+        {
+            var dateOut = new Date(date);
+            return dateOut;
+        };
+
         $scope.toggleEditarTelefone = function()
         {
             $scope.mostrarSalvarTelefone = false;
@@ -166,4 +181,5 @@ angular.module('pessoa', [])
         $scope.buscarTiposPessoa();
         $scope.buscarTiposTelefone();
         $scope.buscarPessoas();
+        $scope.buscarUsuario();
     });

@@ -14,7 +14,7 @@
         </style>
     </head>
 
-    <body ng-app="hello" ng-cloak class="ng-cloak">
+    <body ng-app="hello" ng-controller="navigation as nav" ng-cloak class="ng-cloak">
 
         <div class="borda logo alert-success text-center">
             <p>PROJETO MIRANTE</p>
@@ -27,11 +27,13 @@
                 
                 <li class="nav-item dropdown" ng-class="{active:nav.tab('operador')}">
 
-                    <a class="nav-link dropdown-toggle"  href="/operadores"
+                    <a ng-if="operador.perfil == 'Administrador'"
+                    class="nav-link dropdown-toggle"  href="/operadores"
                     id="operadores" data-toggle="dropdown" 
                     aria-haspopup="true" aria-expanded="false"> OPERADORES</a>
 
-                    <div class="navbar-collapse dropdown-menu" aria-labelledby="operadores">
+                    <div 
+                        class="navbar-collapse dropdown-menu" aria-labelledby="operadores">
                         <a  class="dropdown-item text-center" href="/novo-operador">
                             Cadastrar Operador</a>
                     </div>    
@@ -40,11 +42,13 @@
 
                 <li class="nav-item dropdown" ng-class="{active:nav.tab('pessoa')}">
 
-                    <a class="nav-link dropdown-toggle"  href="/pessoas"
+                    <a ng-if="operador.perfil !== 'Administrador'"
+                    class="nav-link dropdown-toggle"  href="/pessoas"
                     id="pessoas" data-toggle="dropdown" 
                     aria-haspopup="true" aria-expanded="false"> PESSOAS</a>
 
-                    <div class="navbar-collapse dropdown-menu" aria-labelledby="pessoas">
+                    <div ng-if="operador.perfil == 'Gerente'"
+                        class="navbar-collapse dropdown-menu" aria-labelledby="pessoas">
                         <a  class="dropdown-item" href="/nova-pessoa">
                             Cadastrar Pessoa</a>
                     </div>    
