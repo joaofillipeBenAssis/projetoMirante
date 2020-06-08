@@ -14,7 +14,15 @@ angular.module('navigation', ['ngRoute', 'auth'])
                 .then(function (data)
                 {
                     $scope.operador = data.data;
-                    console.log($scope.operador)
+
+                    if($scope.operador === null)
+                    {
+                        var user = {};
+                        user.nome = "'Usuário Padrão do Sistema'";
+                        user.login = "usuario"
+                        user.perfil = "Administrador"
+                        $scope.operador = angular.copy(user); 
+                    }
                 })
         };
 

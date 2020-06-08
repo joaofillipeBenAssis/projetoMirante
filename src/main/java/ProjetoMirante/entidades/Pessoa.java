@@ -96,9 +96,5 @@ public class Pessoa implements Serializable
     public String toString() {
         return "Pessoa{" + "id=" + id + ", nome=" + nome + ", documento=" + documento + ", tipoPessoa=" + tipoPessoa + ", dataNascimento=" + dataNascimento + ", dataCadastro=" + dataCadastro + ", operador=" + operador + '}';
     }
-    
-    public void editar(String nome, String login, String perfil, String status)
-    {
-        
-    }
+
 }

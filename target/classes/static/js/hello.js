@@ -51,18 +51,6 @@ angular.module('hello',
                                         controllerAs: 'controller'
 
                                     })
-
-                                    /*
-
-                                .when('/login',
-                                    {
-                                        templateUrl: 'js/navigation/login.html',
-                                        controller: 'navigation',
-                                        controllerAs: 'controller'
-
-                                    })
-
-                                    */
                                     
                                 .when('/',
                                     {

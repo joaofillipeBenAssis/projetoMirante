@@ -23,7 +23,6 @@ angular.module('pessoa', [])
                 .then(function (data)
                 {
                     $scope.operador = data.data;
-                    console.log($scope.operador)
                 })
         };
 

@@ -107,7 +107,7 @@
         </div>
 
         <div ng-if="operador.perfil == 'Analista'" class="pull-right">
-            <input type="button" class="btn btn-primary" value="Cadastrar" ng-click="toggleSalvarTelefone()"  />
+            <input type="button" class="btn btn-primary" value="+ Telefone" ng-click="toggleSalvarTelefone()"  />
         </div>
 
         <table class="table">
@@ -120,7 +120,7 @@
                     <td>{{t.dataCadastro | date:'dd/MM/yyyy'}}</td>
                     <td>{{t.operador.nome}}</td>
                     <td ng-if="operador.perfil == 'Analista'"> 
-                        <input type="button" class="btn btn-default" value="Editar" ng-click="selecionarTelefone(t)"  />
+                        <input type="button" class="btn btn-default text-center" value="Editar" ng-click="selecionarTelefone(t)"  />
                     </td>
 
                 </tr>

@@ -38,7 +38,7 @@ angular.module('auth', [])
                 loginGestor: false,
                 loginPath: '/login',
                 logoutPath: '/logout',
-                homePath: '/',
+                homePath: '/inicio',
                 path: $location.path(),
                 
                 usuarioLogin: {},
@@ -57,25 +57,13 @@ angular.module('auth', [])
 
                         .success(function (data)
                         {
-                            console.log(data.principal);
-
                             if (data.name)
                             {
                                 auth.authenticated = true;
-
-                                if (data.authorities[0].authority === "Gerente")
-                                {
-                                    auth.loginGestor = true;
-                                    auth.homePath = '/userFilter'
-                                }
-                                
-                                console.log(auth);
                             }
 
                             else
                             {
-                                console.log(data);
-
                                 auth.authenticated = false;
                             }
                             callback && callback(auth.authenticated);
@@ -101,12 +89,6 @@ angular.module('auth', [])
                             $window.location.reload();
                             enter();
                         })
-
-                        .error(function (data)
-                        {
-                            console.log("Logout failed");
-                            console.log(data);
-                        });
                 },
                 init: function (homePath, loginPath, logoutPath)
                 {

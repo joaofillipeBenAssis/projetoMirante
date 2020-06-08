@@ -22,10 +22,10 @@
 
         <div class="col-lg-12 borda">
             <ul class="  nav nav-pills pull-right title-20"  role="tablisr">
-                <li  ng-class="{active:nav.tab('inicio')}"><a  href="/">INÍCIO</a></li>
+                <li><a  href="/">INÍCIO</a></li>
 
                 
-                <li class="nav-item dropdown" ng-class="{active:nav.tab('operador')}">
+                <li class="nav-item dropdown">
 
                     <a ng-if="operador.perfil == 'Administrador'"
                     class="nav-link dropdown-toggle"  href="/operadores"
@@ -40,7 +40,7 @@
 
                 </li>
 
-                <li class="nav-item dropdown" ng-class="{active:nav.tab('pessoa')}">
+                <li class="nav-item dropdown" >
 
                     <a ng-if="operador.perfil !== 'Administrador'"
                     class="nav-link dropdown-toggle"  href="/pessoas"
