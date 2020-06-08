@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        <title>BANK PROJECT</title>
+        <title>PROJETO MIRANTE</title>
         <base href="/" />
         <link href="css/angular-bootstrap.css" rel="stylesheet">
         <link href="css/custom.css" rel="stylesheet">
@@ -20,13 +20,40 @@
             <p>PROJETO MIRANTE</p>
         </div>
 
-            <ul class="borda nav nav-justified title-20"  role="tablisr">
-                <li ng-class="{active:nav.tab('inicio')}"><a  href="/">INÍCIO</a></li>
-                <li ng-class="{active:nav.tab('operador')}"><a  href="/operadores">OPERADORES</a></li>
-                <li ng-class="{active:nav.tab('pessoa')}"><a  href="/pessoas">PESSOAS</a></li>
-                <li ng-class="{active:nav.tab('operador')}"><a  href="/novo-operador">CADASTRO OP</a></li>
-                <li ng-class="{active:nav.tab('pessoa')}"><a  href="/nova-pessoa">CADASTRO PE</a></li>  
+        <div class="col-lg-12 borda">
+            <ul class="  nav nav-pills pull-right title-20"  role="tablisr">
+                <li  ng-class="{active:nav.tab('inicio')}"><a  href="/">INÍCIO</a></li>
+
+                
+                <li class="nav-item dropdown" ng-class="{active:nav.tab('operador')}">
+
+                    <a class="nav-link dropdown-toggle"  href="/operadores"
+                    id="operadores" data-toggle="dropdown" 
+                    aria-haspopup="true" aria-expanded="false"> OPERADORES</a>
+
+                    <div class="navbar-collapse dropdown-menu" aria-labelledby="operadores">
+                        <a  class="dropdown-item text-center" href="/novo-operador">
+                            Cadastrar Operador</a>
+                    </div>    
+
+                </li>
+
+                <li class="nav-item dropdown" ng-class="{active:nav.tab('pessoa')}">
+
+                    <a class="nav-link dropdown-toggle"  href="/pessoas"
+                    id="pessoas" data-toggle="dropdown" 
+                    aria-haspopup="true" aria-expanded="false"> PESSOAS</a>
+
+                    <div class="navbar-collapse dropdown-menu" aria-labelledby="pessoas">
+                        <a  class="dropdown-item" href="/nova-pessoa">
+                            Cadastrar Pessoa</a>
+                    </div>    
+
+                </li>
+
             </ul>
+
+        </div>
 
         <div ng-view=""></div>
 

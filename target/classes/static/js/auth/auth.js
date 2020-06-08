@@ -1,40 +1,34 @@
 angular.module('auth', [])
 
-    .factory('auth', function ($rootScope, $http, $location)
+    .factory('auth', function ($rootScope, $http, $location, $window)
     {
 
         var self = this;
 
         self.userInfo = {};
-    
-        buscarUser = function ()
+
+        buscarUsuario = function ()
         {
-            $http.get("pessoa/buscarCliente")
+            $http.get("operador/exibirUsuario")
                 .then(function (data)
                 {
-                    console.log(data);
-
                     self.userInfo = data.data;
-                    console.log(self.userInfo);
-                    
                     auth.usuarioLogin = self.userInfo;
                 })
-
-                .catch(function (data)
-                {
-                    console.log("Erro User Info Auth");
-                });
         };
-
+    
         enter = function ()
         {
             if ($location.path() !== auth.loginPath)
             {
                 auth.path = $location.path();
+
                 if (!auth.authenticated)
                 {
-                    $location.path(auth.loginPath);
+                    $location.path(auth.loginPath); 
                 }
+
+                
             }
         };
 
@@ -104,7 +98,7 @@ angular.module('auth', [])
                     $http.post(auth.logoutPath)
                         .success(function ()
                         {
-                            console.log("Logout succeeded");
+                            $window.location.reload();
                             enter();
                         })
 

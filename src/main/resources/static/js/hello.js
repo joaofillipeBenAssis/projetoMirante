@@ -67,7 +67,7 @@ angular.module('hello',
                                 .when('/',
                                     {
                                         templateUrl: 'js/inicio/inicio.html',
-                                        controller: 'inicio',
+                                        controller: 'navigation',
                                         controllerAs: 'controller'
 
                                     })

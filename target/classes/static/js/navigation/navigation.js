@@ -1,13 +1,36 @@
 angular.module('navigation', ['ngRoute', 'auth'])
 
-    .controller('navigation', function ($route, $scope, auth)
+    .controller('navigation', function ($http, $route, $scope, auth)
     {
-        $scope.userInfo = {};
+        $scope.operador = {};
 
         var self = this;
 
         self.credentials = {};
-     
+ 
+        $scope.buscarUsuario = function ()
+        {
+            $http.get("operador/exibirUsuario")
+                .then(function (data)
+                {
+                    $scope.operador = data.data;
+                })
+        };
+
+        self.login = function ()
+        {
+            auth.authenticate(self.credentials, function (authenticated)
+            {
+                $scope.buscarUsuario();
+            });
+
+        };
+
+        $scope.logout = function()
+        {
+            auth.clear();
+        };
+
         self.tab = function (route) {
             return $route.current && route === $route.current.controller;
         };
@@ -20,40 +43,6 @@ angular.module('navigation', ['ngRoute', 'auth'])
         self.isGestor = function ()
         {
             return auth.loginGestor;
-        };
-
-        self.login = function ()
-        {
-            auth.authenticate(self.credentials, function (authenticated)
-            {
-                if (authenticated)
-                {
-
-                    console.log("Login succeeded");
-                    self.error = false;
-                    
-                    buscarUser();
-                    
-                    $scope.userInfo = auth.usuarioLogin;
-                    
-                    console.log($scope.userInfo);
-                }
-
-                else
-                {
-                    console.log("Login failed");
-                    self.error = true;
-                }
-                
-                console.log($scope.userInfo);
-
-            });
-
-        };
-
-        self.logout = function()
-        {
-            auth.clear();
         };
         
         self.authenticated();

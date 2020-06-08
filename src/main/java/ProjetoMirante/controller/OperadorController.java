@@ -12,6 +12,7 @@ import com.fasterxml.jackson.datatype.hibernate4.Hibernate4Module;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -70,6 +71,21 @@ public class OperadorController
         }
     }
 
+    @RequestMapping(value = "/exibirUsuario", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<?>  exibirUsuario()
+    {
+        try
+        {
+            return returnList(buscarUsuario());
+        } 
+        
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            return httpStatusInfo(e, HttpStatus.FORBIDDEN);
+        }
+    }
+
     @RequestMapping(value = "/editar", method = RequestMethod.PUT, produces = "application/json")
     public ResponseEntity<?> editar(@RequestBody Operador operador)
     {
@@ -83,6 +99,16 @@ public class OperadorController
         {
             return httpStatusInfo(e, HttpStatus.FORBIDDEN);
         }
+    }
+
+    private Operador buscarUsuario()
+    {        
+        return convertePrincipal((org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+    }
+
+    private Operador convertePrincipal(org.springframework.security.core.userdetails.User o)
+    {
+        return operadorService.buscarOperador(o.getUsername());
     }
 
     private ResponseEntity<?> returnList(Object object) throws JsonProcessingException
