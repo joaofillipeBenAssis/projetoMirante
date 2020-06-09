@@ -155,8 +155,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <wro4j.version>1.7.6</wro4j.version>
-        <java.version>1.7</java.version>
+        <wro4j.version>1.7.9</wro4j.version>
+        <java.version>1.8</java.version>
     </properties>
 
     <build>
@@ -199,7 +199,7 @@
             <plugin>
                 <groupId>ro.isdc.wro4j</groupId>
                 <artifactId>wro4j-maven-plugin</artifactId>
-                <version>1.7.9</version>
+                <version>${wro4j.version}</version>
                 <executions>
                     <execution>
                         <phase>generate-resources</phase>
@@ -232,11 +232,7 @@
                         <artifactId>bootstrap</artifactId>
                         <version>3.3.4</version>
                     </dependency>
-                    <dependency>
-                        <groupId>org.webjars</groupId>
-                        <artifactId>font-awesome</artifactId>
-                        <version>4.5.0</version>
-                    </dependency>
+  
                     <dependency>
                         <groupId>org.webjars</groupId>
                         <artifactId>jquery-ui</artifactId>

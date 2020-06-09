@@ -1,39 +1,21 @@
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\src\main\java\ProjetoBanco\repository\ProdutoRepository.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\src\main\java\ProjetoBanco\controller\ContaController.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\src\main\java\ProjetoBanco\entiidades\Role.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\src\main\java\ProjetoBanco\services\ItemCompraService.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\src\main\java\ProjetoBanco\entiidades\ItemCompra.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\target\generated-sources\java\ProjetoBanco\entiidades\QItemCompra.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\src\main\java\ProjetoBanco\entiidades\TipoProduto.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\src\main\java\ProjetoBanco\repository\TipoProdutoRepository.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\src\main\java\ProjetoBanco\services\DepositoService.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\src\main\java\ProjetoBanco\entiidades\Conta.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\target\generated-sources\java\ProjetoBanco\entiidades\QRole.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\src\main\java\ProjetoBanco\services\ContaService.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\target\generated-sources\java\ProjetoBanco\entiidades\QPessoa.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\src\main\java\ProjetoBanco\entiidades\Deposito.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\target\generated-sources\java\ProjetoBanco\entiidades\QTipoProduto.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\src\main\java\ProjetoBanco\services\PessoaService.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\src\main\java\ProjetoBanco\util\PasswordEncoderGenerator.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\target\generated-sources\java\ProjetoBanco\entiidades\QConta.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\src\main\java\ProjetoBanco\repository\DepositoRepository.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\src\main\java\ProjetoBanco\entiidades\Compra.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\src\main\java\ProjetoBanco\entiidades\Pessoa.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\src\main\java\ProjetoBanco\controller\CompraController.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\target\generated-sources\java\ProjetoBanco\entiidades\QDeposito.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\src\main\java\ProjetoBanco\repository\RoleRepository.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\src\main\java\ProjetoBanco\util\VO.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\src\main\java\ProjetoBanco\controller\ProdutoController.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\src\main\java\ProjetoBanco\services\ProdutoService.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\src\main\java\ProjetoBanco\repository\PessoaRepository.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\src\main\java\ProjetoBanco\repository\CompraRepository.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\target\generated-sources\java\ProjetoBanco\entiidades\QCompra.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\src\main\java\ProjetoBanco\repository\ItemCompraRepository.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\src\main\java\ProjetoBanco\repository\ContaRepository.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\src\main\java\ProjetoBanco\services\CompraService.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\src\main\java\ProjetoBanco\UiApplication.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\target\generated-sources\java\ProjetoBanco\entiidades\QProduto.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\src\main\java\ProjetoBanco\entiidades\TipoPessoaEnum.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\src\main\java\ProjetoBanco\entiidades\Produto.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\src\main\java\ProjetoBanco\entiidades\TipoProdutoEnum.java
-C:\Users\Fillipe.assis\Documents\NetBeansProjects\ProjetoBanco\src\main\java\ProjetoBanco\controller\PessoaController.java
+C:\Users\JOAO FILLIPE\Documents\Mirante\projetoMirante\src\main\java\ProjetoMirante\enums\OperadorEnum.java
+C:\Users\JOAO FILLIPE\Documents\Mirante\projetoMirante\src\main\java\ProjetoMirante\repository\RoleRepository.java
+C:\Users\JOAO FILLIPE\Documents\Mirante\projetoMirante\src\main\java\ProjetoMirante\repository\TelefoneRepository.java
+C:\Users\JOAO FILLIPE\Documents\Mirante\projetoMirante\src\main\java\ProjetoMirante\util\PasswordEncoderGenerator.java
+C:\Users\JOAO FILLIPE\Documents\Mirante\projetoMirante\src\main\java\ProjetoMirante\UiApplication.java
+C:\Users\JOAO FILLIPE\Documents\Mirante\projetoMirante\src\main\java\ProjetoMirante\entidades\Pessoa.java
+C:\Users\JOAO FILLIPE\Documents\Mirante\projetoMirante\target\generated-sources\java\ProjetoMirante\entidades\QPessoa.java
+C:\Users\JOAO FILLIPE\Documents\Mirante\projetoMirante\src\main\java\ProjetoMirante\entidades\Operador.java
+C:\Users\JOAO FILLIPE\Documents\Mirante\projetoMirante\target\generated-sources\java\ProjetoMirante\entidades\QRole.java
+C:\Users\JOAO FILLIPE\Documents\Mirante\projetoMirante\src\main\java\ProjetoMirante\controller\PessoaController.java
+C:\Users\JOAO FILLIPE\Documents\Mirante\projetoMirante\target\generated-sources\java\ProjetoMirante\entidades\QOperador.java
+C:\Users\JOAO FILLIPE\Documents\Mirante\projetoMirante\src\main\java\ProjetoMirante\enums\TelefoneEnum.java
+C:\Users\JOAO FILLIPE\Documents\Mirante\projetoMirante\src\main\java\ProjetoMirante\services\PessoaService.java
+C:\Users\JOAO FILLIPE\Documents\Mirante\projetoMirante\src\main\java\ProjetoMirante\repository\OperadorRepository.java
+C:\Users\JOAO FILLIPE\Documents\Mirante\projetoMirante\src\main\java\ProjetoMirante\entidades\Role.java
+C:\Users\JOAO FILLIPE\Documents\Mirante\projetoMirante\src\main\java\ProjetoMirante\repository\PessoaRepository.java
+C:\Users\JOAO FILLIPE\Documents\Mirante\projetoMirante\src\main\java\ProjetoMirante\controller\OperadorController.java
+C:\Users\JOAO FILLIPE\Documents\Mirante\projetoMirante\src\main\java\ProjetoMirante\enums\PessoaEnum.java
+C:\Users\JOAO FILLIPE\Documents\Mirante\projetoMirante\target\generated-sources\java\ProjetoMirante\entidades\QTelefone.java
+C:\Users\JOAO FILLIPE\Documents\Mirante\projetoMirante\src\main\java\ProjetoMirante\entidades\Telefone.java
+C:\Users\JOAO FILLIPE\Documents\Mirante\projetoMirante\src\main\java\ProjetoMirante\services\OperadorService.java

@@ -25,6 +25,8 @@ public class PasswordEncoderGenerator
             throw e;
         }
     }
+    
+    /*
 
     public static void main(String[] args) throws NoSuchAlgorithmException
     {
@@ -38,5 +40,6 @@ public class PasswordEncoderGenerator
         System.out.println(matched);
     }
     
+    */
  
 }
